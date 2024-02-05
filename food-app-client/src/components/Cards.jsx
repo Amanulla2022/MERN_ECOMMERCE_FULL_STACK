@@ -8,25 +8,26 @@ const Cards = ({ item }) => {
     setHeartFilled(!isheartFilled);
   };
   return (
-    <div className="card w-96 bg-base-100 shadow-xl relative">
+    <div className="card  bg-base-100 shadow-xl relative">
       <div
-        className={`rating gap-1 absolute right-2 top-2 p-4 heartStar bg-green ${
+        className={`rating gap-1 absolute right-2 top-4 p-4 heartStar bg-green ${
           isheartFilled ? "text-rose-500" : "text-white"
         }`}
         onClick={handleHeartClick}
       >
-        <FaHeart className="h-5 w-5 cursor-pointer" />
+        <FaHeart className="h-5 w-5 cursor-pointer " />
       </div>
-      <Link to={`/menu${item._id}`}>
-        <figure>
-          <img src={item.image} alt="" />
+      <Link to={`/my${item.id}`}>
+        <figure className="h-72 w-78 flex justify-center items-center my-auto">
+          <img src={item.image} alt={`${item.name} Image`} />
         </figure>
       </Link>
       <div className="card-body">
-        <Link to={`/menu/${item._id}`}>
+        <Link to={`/my/${item.id}`}>
           <h2 className="card-title">{item.name}</h2>
         </Link>
-        <p>Description of the item</p>
+        <p className="font-bold text-center text-green">SOME INGREDIENTS!!!</p>
+        <p>{`${item.ingredients[0]}  ${item.ingredients[1]} ...`}</p>
         <div className="card-actions justify-between item-center">
           <h5 className="font-semibold ">
             <span className="text-sm text-red">$</span>

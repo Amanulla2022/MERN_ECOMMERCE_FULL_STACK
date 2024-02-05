@@ -37,11 +37,11 @@ const SpecialDishes = () => {
   const slider = React.useRef(null);
 
   useEffect(() => {
-    fetch("/menu.json")
+    fetch("/my.json")
       .then((res) => res.json())
       .then((data) => {
-        const specials = data.filter((item) => item.category === "popular");
-        // console.log(special);
+        const specials = data.filter((item) => item.servings === 4);
+        console.log(specials);
         setRecipes(specials);
       });
   }, []);
